@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <title>Budget Application</title>
+</head>
+<body>
+    <div class="container budget-header">
+        <p>Available Budget in <span class="current-month-year">Month Year</span>:</p>
+        <div class="total-budget">+ 0.00</div>
+        <div class="total-income-container"><span class="total-label">Income</span> <span class="total-value total-income">+ 10000000</span></div>
+        <div class="total-expense-container"><span class="total-labe">Expense</span> <span class="total-value total-expense">- 10000</span><span class="total-percentage">100%</span></div>
+    </div>
+    <div class="container">
+        <form class="budget-input">
+            <select class="input-dropdown" dir="rtl">
+                <option value="income" selected>&plus;</option>
+                <option value="expense" >&minus;</option>
+            </select>
+            <input type="text" class="input-desc" placeholder="Add a description" maxlength="30" required>
+            <input type="number" class="input-value" step="0.01" placeholder="Value" required>
+            <button type="submit" class="input-submit"><i class="fa fa-check"></i></button>
+        </form>
+        
+    </div>
+    <div class="container budget-list">
+        <div class="income-list">
+            <p>Income</p>
+            <div class="income-items"></div>
+        </div>
+        <div class="expense-list">
+            <p>Expense</p>
+            <div class="expense-items"></div>
+        </div>
+    </div>
+    <script>
+        let dropdown = document.querySelector('.input-dropdown');
+        dropdown.addEventListener("focus", function(e){
+            let selected = dropdown.options[dropdown.selectedIndex];
+            selected.innerHTML =  selected.innerText + "&check;";
+        });
+        dropdown.addEventListener("blur", function(e){
+            let selected = dropdown.options[dropdown.selectedIndex];
+            selected.innerHTML = selected.innerText[0]   
+        });
+        dropdown.addEventListener("change", function(e){
+            let selected = dropdown.options[dropdown.selectedIndex];
+            Array.from(dropdown.options).forEach((element, i) => {
+                if(dropdown.selectedIndex !== i){
+                    element.innerHTML =  element.innerText[0];
+                } 
+            });
+            selected.innerHTML =  selected.innerText + "&check;";
+        });
+    </script>
+</body>
+</html>
