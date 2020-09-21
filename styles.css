@@ -11,7 +11,7 @@
 }
 
 .budget-header {
-    background: url('./img/thpurpstars.gif') no-repeat center fixed;
+    background: url("./img/bg-ing.jpg") no-repeat center fixed;
     background-size: cover;
     height: 250px;
     color: #FFFFFF;
@@ -28,10 +28,10 @@
 .total-income-container {
     display: flex;
     font-size: 15px;
-    padding: 5px;
-    border-radius: 2px;
+    padding: 7px;
+    border-radius: 3px;
     width: 300px;
-    background-color: #3939b6;
+    background-color: #008080;
     margin-bottom: 10px;
 }
 
@@ -41,15 +41,14 @@
 
 .total-value {
     width: 70%;
-    color: #ffffff;
     text-align: right;
 }
 
 .total-expense-container {
     display: flex;
     font-size: 15px;
-    padding: 5px;
-    border-radius: 2px;
+    padding: 7px;
+    border-radius: 3px;
     width: 300px;
     background-color: #da3535;
 }
@@ -59,10 +58,81 @@
     justify-content: center;
     align-items: center;
     font-size: 10px;
-    width: 8%;
+    width: 9%;
     border-radius: 5px;
     background-color: rgba(255, 255, 255, 0.5);
     margin-left: 5px;
 }
+
+.budget-input {
+    display: flex;
+    height: 60px;
+    width: 700px;
+    margin: 10px auto;
+    padding: 10px;
+    justify-content: center;
+}
+
+.input-dropdown {
+    width: 60px;
+    font-size: 20px;
+    font-family: monospace;
+}
+
+.input-desc{
+    width: 50%;
+    font-size: 15px;
+}
+
+.input-value {
+    width: 20%;
+    font-size: 15px;
+}
+
+.budget-input input, .budget-input select{
+    border-radius: 3px;
+    border: 1px solid #000000;
+    padding: 5px;
+    margin-right: 5px;
+    outline: none;
+}
+
+.budget-input *:focus {
+    box-shadow: 0px 0px 5px #888888;
+}
+
+.input-submit {
+    margin: auto 0;
+    height: 25px;
+    width: 25px;
+    outline: none;
+    border-radius: 50%;
+    border: 1px solid #000000;
+}
+
+.budget-list {
+    padding: 10px 50px;
+    justify-content: center;
+    margin: 0 auto;
+    width: 80%;
+}
+
+.income-list {
+    width: 40%;
+    color:#008080;
+}
+
+.expense-list {
+    width: 40%;
+    color:#da3535;
+}
+
+.income-list p, .expense-list p {
+    font-weight: bold;
+    text-align: center;
+}
+
+
+
 
 
