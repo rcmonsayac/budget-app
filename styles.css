@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Roboto;
+}
+
+.container {
+    display: flex;
+}
+
+.budget-header {
+    background: url('./img/thpurpstars.gif') no-repeat center fixed;
+    background-size: cover;
+    height: 250px;
+    color: #FFFFFF;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.total-budget {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.total-income-container {
+    display: flex;
+    font-size: 15px;
+    padding: 5px;
+    border-radius: 2px;
+    width: 300px;
+    background-color: #3939b6;
+    margin-bottom: 10px;
+}
+
+.total-label {
+    width: 20%;
+}
+
+.total-value {
+    width: 70%;
+    color: #ffffff;
+    text-align: right;
+}
+
+.total-expense-container {
+    display: flex;
+    font-size: 15px;
+    padding: 5px;
+    border-radius: 2px;
+    width: 300px;
+    background-color: #da3535;
+}
+
+.total-percentage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    width: 8%;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+    margin-left: 5px;
+}
+
+
