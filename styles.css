@@ -25,14 +25,21 @@
     margin-bottom: 10px;
 }
 
-.total-income-container {
+.total-income-container, .total-expense-container {
     display: flex;
     font-size: 15px;
     padding: 7px;
     border-radius: 3px;
     width: 300px;
-    background-color: #008080;
+
     margin-bottom: 10px;
+}
+.total-income-container{
+    background-color: #008080;
+}
+
+.total-expense-container {
+    background-color: #da3535;
 }
 
 .total-label {
@@ -42,15 +49,6 @@
 .total-value {
     width: 70%;
     text-align: right;
-}
-
-.total-expense-container {
-    display: flex;
-    font-size: 15px;
-    padding: 7px;
-    border-radius: 3px;
-    width: 300px;
-    background-color: #da3535;
 }
 
 .total-percentage {
@@ -131,6 +129,8 @@
     font-weight: bold;
     text-align: center;
 }
+
+
 
 
 
