@@ -51,7 +51,7 @@
     text-align: right;
 }
 
-.total-percentage {
+.total-exp-percentage {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -95,7 +95,11 @@
     font-size: 15px;
 }
 
-.budget-input *:focus, .income-delete:focus {
+.budget-input input:focus, .income-delete:active {
+    box-shadow: 0px 0px 7px #8b8686;
+}
+
+.budget-input button:hover{
     box-shadow: 0px 0px 7px #8b8686;
 }
 
@@ -163,6 +167,9 @@
     text-align: left;
     padding:5px;
     color: #000000;
+    overflow: hidden;
+    white-space: nowrap; 
+    text-overflow: ellipsis;
 }
 
 .income-value {
@@ -202,6 +209,9 @@
     text-align: left;
     padding:5px;
     color: #000000;
+    overflow: hidden;
+    white-space: nowrap; 
+    text-overflow: ellipsis;
 }
 
 .expense-value {

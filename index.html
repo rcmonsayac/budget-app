@@ -13,11 +13,11 @@
 <body>
     <div class="container budget-header">
         <p>Available Budget in <span class="current-month-year">Month Year</span>:</p>
-        <div class="total-budget">+ 0.00</div>
+        <div class="total-budget">0.00</div>
         <div class="total-income-container"><span class="total-label">Income</span> <span
-                class="total-value total-income">+ 10000000</span></div>
-        <div class="total-expense-container"><span class="total-labe">Expense</span> <span
-                class="total-value total-expense">- 10000</span><span class="total-percentage">100%</span></div>
+                class="total-value total-income">+0.00</span></div>
+        <div class="total-expense-container"><span class="total-label">Expense</span> <span
+                class="total-value total-expense">-0.00</span><span class="total-exp-percentage">...</span></div>
     </div>
     <div class="container">
         <form class="budget-input">
@@ -26,7 +26,7 @@
                 <option value="expense">&minus;</option>
             </select>
             <input type="text" class="input input-desc" placeholder="Add a description" maxlength="30" required>
-            <input type="number" class="input input-value" step="0.01" placeholder="Value" required>
+            <input type="number" class="input input-value" min="0.01" max="100000000" step="0.01" placeholder="Value" required>
             <button type="submit" class="input-submit income-button"><i class="fa fa-check"></i></button>
         </form>
 
@@ -35,33 +35,11 @@
         <div class="income-list">
             <p>Income</p>
             <div class="income-items">
-                <div class="income-item">
-                    <span class="income-desc">test yttewstrdasfdsasa</span>
-                    <span class="income-value">-10000 </span>
-                    <button class="income-delete"><i class="fa fa-times"></i></button>
-                </div>
-                <div class="income-item">
-                    <span class="income-desc">test yttewstrdasfdsasa</span>
-                    <span class="income-value">-10000 </span>
-                    <button class="income-delete"><i class="fa fa-times"></i></button>
-                </div>
             </div>
         </div>
         <div class="expense-list">
             <p>Expense</p>
             <div class="expense-items">
-                <div class="expense-item">
-                    <span class="expense-desc">test yttewstrdasfdsasa</span>
-                    <span class="expense-value">-10000 </span>
-                    <span class="expense-percentage">100%</span>
-                    <button class="expense-delete"><i class="fa fa-times"></i></button>
-                </div>
-                <div class="expense-item">
-                    <span class="expense-desc">test yttewstrdasfdsasa</span>
-                    <span class="expense-value">-1000000.00 </span>
-                    <span class="expense-percentage">10%</span>
-                    <button class="expense-delete"><i class="fa fa-times"></i></button>
-                </div>
             </div>
         </div>
     </div>
