@@ -51,7 +51,7 @@
     text-align: right;
 }
 
-.total-exp-percentage {
+.percentage {
     display: flex;
     justify-content: center;
     align-items: center;

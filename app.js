@@ -74,13 +74,21 @@ const budgetObj = {
     update: function (type) {
         let totalIncome = this.getTotal("income");
         let totalExpense = this.getTotal("expense")
+        let budget = totalIncome - totalExpense;
         if (type === "income") {
+            this.totalIncomeElement.querySelector(".total-value").innerHTML = formatValue("income", totalIncome);
+
             this.expense.forEach((current) => {
                 let percentElement = current.element.querySelector(".expense-percentage");
                 current.percentage = getPercent(current.value, totalIncome);
                 percentElement.innerHTML = current.percentage;
             });
         }
+        else {
+            this.totalExpenseElement.querySelector(".total-value").innerHTML = formatValue("expense", totalExpense);
+        }   
+        this.totalExpenseElement.querySelector(".percentage").innerHTML = getPercent(totalExpense, totalIncome);
+        this.budgetElement.innerHTML = budget >= 0 ? formatValue("income", Math.abs(budget)) : formatValue("expense", Math.abs(budget));
     },
     getTotal: function (type) {
         let total = this[type].reduce((sum, current) => {
