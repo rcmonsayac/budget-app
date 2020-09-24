@@ -105,9 +105,9 @@ const budgetObj = {
         this[item.type].push(item);
         this.update(item.type);
     },
-    removeItem: function (item) {
-        return function(e) {
-            let itemIndex = obj[item.type].findIndex(current => current.id == item.id)
+    removeItem: function(item) {
+        return (e) => {
+            let itemIndex = budgetObj[item.type].findIndex(current => current.id == item.id)
             item.element.remove();
             budgetObj[item.type].splice(itemIndex, 1);
             budgetObj.update(item.type);
