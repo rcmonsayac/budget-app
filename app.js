@@ -5,28 +5,28 @@ const dropdown = document.querySelector('.input-dropdown');
 const descInput = document.querySelector('.input-desc')
 const valueInput = document.querySelector('.input-value')
 const inputForm = document.querySelector(".budget-input");
+const dateDisplay = document.querySelector(".current-month-year");
+
+//display current month year in header
+let currentDate = new Date();
+dateDisplay.innerHTML = `${currentDate.toLocaleString('default', { month: 'long' })} ${currentDate.getFullYear()}`;
 
 //Issue 2 - Dropdown expense and income toggle
-//toggler of submit button color
 function toggleButton(type) {
     let oppType = type === 'income' ? 'expense' : 'income';
     submitButton.classList.remove(`${oppType}-button`);
     submitButton.classList.add(`${type}-button`);
 }
-
-//Event listner when dropdown becomess active, adds check symbol to selected option
 dropdown.addEventListener("focus", function (e) {
     let selected = dropdown.options[dropdown.selectedIndex];
     selected.innerHTML = selected.innerText + "&check;";
 });
 
-//Removes check symbol to selected option when dropdown becomes inactive
 dropdown.addEventListener("blur", function (e) {
     let selected = dropdown.options[dropdown.selectedIndex];
     selected.innerHTML = selected.innerText[0];
 });
 
-//Moves the check symbol when selected option changes
 dropdown.addEventListener("change", function (e) {
     let selected = dropdown.options[dropdown.selectedIndex];
     Array.from(dropdown.options).forEach((element, i) => {
@@ -38,7 +38,6 @@ dropdown.addEventListener("change", function (e) {
     toggleButton(selected.value);
 });
 
-//Add or remove active effect on all input fields depending on current dropdown value
 document.querySelectorAll('.input').forEach(element => {
     element.addEventListener("focus", e => {
         let type = dropdown.value;
@@ -50,19 +49,19 @@ document.querySelectorAll('.input').forEach(element => {
     });
 })
 
-
 //utilities
 function getPercent(value, totalIncome) {
     let percent = Number(value / totalIncome * 100);
-    return !isNaN(percent) && isFinite(percent) ?
-        percent.toFixed(0) + '%' : "...";
+    if(!isNaN(percent) && isFinite(percent)){
+        return percent.toFixed(0).length < 4 ? percent.toFixed(0) + '%' : "...";
+    }
+    return "...";
 }
-
 function formatValue(type, value) {
-    return (type === "income" ? "+ " : "- ") + Number(value).toLocaleString(undefined, { minimumFractionDigits: 2 });
+    return (type === "income" ? "+ " : "- ") + Number(value).toLocaleString("en-US", { minimumFractionDigits: 2 });
 }
 
-
+//Issue 2 - List functionality and totals display
 const budgetObj = {
     income: [],
     expense: [],
@@ -73,11 +72,10 @@ const budgetObj = {
     expenseList: document.querySelector('.expense-items'),
     update: function (type) {
         let totalIncome = this.getTotal("income");
-        let totalExpense = this.getTotal("expense")
+        let totalExpense = this.getTotal("expense");
         let budget = totalIncome - totalExpense;
         if (type === "income") {
             this.totalIncomeElement.querySelector(".total-value").innerHTML = formatValue("income", totalIncome);
-
             this.expense.forEach((current) => {
                 let percentElement = current.element.querySelector(".expense-percentage");
                 current.percentage = getPercent(current.value, totalIncome);
@@ -108,15 +106,14 @@ const budgetObj = {
         this.update(item.type);
     },
     removeItem: function (item) {
-        return e => {
-            let itemIndex = budgetObj[item.type].findIndex(current => current.id == item.id)
+        return function(e) {
+            let itemIndex = obj[item.type].findIndex(current => current.id == item.id)
             item.element.remove();
             budgetObj[item.type].splice(itemIndex, 1);
             budgetObj.update(item.type);
         }
     }
 }
-
 
 function generateId() {
     let incomeCounter = 0;
@@ -126,7 +123,6 @@ function generateId() {
     }
 }
 let getItemId = generateId();
-
 let Item = function (value, desc, type, itemId, remove) {
     this.id = itemId(type);
     this.value = value;
@@ -171,8 +167,8 @@ inputForm.addEventListener("submit", (e) => {
     let desc = descInput.value;
     let value = valueInput.value;
     let item = new Item(value, desc, type, getItemId, budgetObj.removeItem);
-
     budgetObj.addItem(item);
+
     descInput.value = "";
     valueInput.value = "";
 
