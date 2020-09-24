@@ -11,7 +11,7 @@
 }
 
 .budget-header {
-    background: url("./img/bg-img.jpg") no-repeat center fixed;
+    background: url("./img/bg-img3.jpg") no-repeat bottom fixed;
     background-size: cover;
     height: 250px;
     color: #FFFFFF;
@@ -133,7 +133,6 @@
 
 .income-list p, .expense-list p {
     font-weight: bold;
-    /* text-align: center; */
 }
 
 .income-input, .income-button {
@@ -165,7 +164,7 @@
 .income-desc {
     width: 70%;
     text-align: left;
-    padding:5px;
+    padding: 5px;
     color: #000000;
     overflow: hidden;
     white-space: nowrap; 
@@ -177,6 +176,11 @@
     justify-content: flex-end;
     width: 30%;
     padding: 5px;
+    transition: transform 1s;
+}
+
+.income-item:hover .income-value, .expense-item:hover .expense-value, .expense-item:hover .expense-percentage {
+    transform: translateX(-10px);
 }
 
 .income-delete {
@@ -219,7 +223,10 @@
     justify-content: flex-end;
     width: 30%;
     padding: 5px;
+    transition: transform 1s;
 }
+
+
 
 .expense-percentage {
     display: flex;
@@ -231,6 +238,7 @@
     height: 15px;
     border-radius: 5px;
     background-color: rgba(238, 66, 66, 0.5);
+    transition: transform 1s;
 }
 
 .expense-delete {
