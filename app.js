@@ -51,9 +51,9 @@ document.querySelectorAll('.input').forEach(element => {
 
 //utilities
 function getPercent(value, totalIncome) {
-    let percent = Number(value / totalIncome * 100);
+    let percent = Math.round(value / totalIncome * 100);
     if(!isNaN(percent) && isFinite(percent)){
-        return percent.toFixed(0).length < 4 ? percent.toFixed(0) + '%' : "...";
+        return String(percent).length < 4 ? percent + '%' : "...";
     }
     return "...";
 }
